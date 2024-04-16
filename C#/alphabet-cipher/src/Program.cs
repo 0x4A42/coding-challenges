@@ -20,11 +20,17 @@ do
 
     if (!InputValidation.IsValid(stringToEncrypt)) { continue; }
     if (!InputValidation.IsValid(userEnteredEncryptingPhrase)) { continue; }
-   
-    if (stringToEncrypt.Length != userEnteredEncryptingPhrase.Length) { finalEncryptedPhrase = InputValidation.EncryptionStringLengthener(userEnteredEncryptingPhrase, stringToEncrypt.Length); } else { finalEncryptedPhrase = userEnteredEncryptingPhrase;  }
-    
+
+    if (stringToEncrypt.Length != userEnteredEncryptingPhrase.Length)
+    {
+        finalEncryptedPhrase = InputValidation.EncryptionStringLengthener(userEnteredEncryptingPhrase, stringToEncrypt.Length);
+    }
+    else
+    {
+        finalEncryptedPhrase = userEnteredEncryptingPhrase;
+    }
+
     Console.WriteLine($"Your encrypted string is: '{substitutor.EncryptString(stringToEncrypt, finalEncryptedPhrase)}'.");
-    
+
 } while (continueLoop);
 
- 
