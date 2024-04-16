@@ -4,7 +4,7 @@ namespace alphabet_cipher_tests
 {
     public class LetterSubstitutorTests
     {
-        readonly LetterSubstitutor _sut = new();
+        readonly AlphabetCipher _sut = new();
 
         [Theory]
         [InlineData("meetmebythetree", "sconessconessco", "egsgqwtahuiljgs")]

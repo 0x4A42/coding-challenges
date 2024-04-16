@@ -7,9 +7,9 @@ namespace alphabet_cipher.src
         readonly static string[] exitConditions = ["EXIT", "STOP", "QUIT", "END"];
         public static bool IsValid(string input)
         {
-
-            if (string.IsNullOrWhiteSpace(input)) { Console.Error.WriteLine("Could not encrypt your phrase - cannot be empty."); return false; }
-            if (input.Any(char.IsDigit)) { Console.Error.WriteLine($"Could not encrypt {input} - your phrase cannot contain numbers."); return false; }
+            var baseError = $"Could not process {input} - ";
+            if (string.IsNullOrWhiteSpace(input)) { Console.Error.WriteLine(baseError + "your phrase cannot be empty."); return false; }
+            if (input.Any(char.IsDigit)) { Console.Error.WriteLine(baseError + "your phrase cannot contain numbers."); return false; }
             return true;
         }
 
@@ -20,7 +20,7 @@ namespace alphabet_cipher.src
             return false;
         }
 
-        public static string EncryptionStringLengthener(string input, int length)
+        public static string SecretPhraseLengthModifier(string input, int length)
         {
             var builder = new StringBuilder(length);
             do

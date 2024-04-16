@@ -48,7 +48,7 @@ namespace alphabet_cipher_tests
         [InlineData("abcdef", 4, "abcd")]
         public void EncryptionStringLengthener(string input, int length, string expected)
         {
-            Assert.Equal(expected, InputValidation.EncryptionStringLengthener(input, length));
+            Assert.Equal(expected, InputValidation.SecretPhraseLengthModifier(input, length));
         }
 
     }

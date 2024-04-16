@@ -1,12 +1,14 @@
-﻿namespace alphabet_cipher.src
+﻿using System.Text;
+
+namespace alphabet_cipher.src
 {
-    public class LetterSubstitutor
+    public class AlphabetCipher
     {
 
         private readonly Dictionary<char, string> alphabetSubstitutionChart;
         private readonly Dictionary<char, int> characterPlaceInAlphabet;
 
-        public LetterSubstitutor()
+        public AlphabetCipher()
         {
             alphabetSubstitutionChart = InitialiseSubstitutionChart(new Dictionary<char, string>());
             characterPlaceInAlphabet = InitialiseAlphabetLookUpDictionary(new Dictionary<char, int>());
@@ -79,12 +81,13 @@
 
         public string EncryptString(string stringToEncrypt, string encryptingPhrase)
         {
-            var encryptedString = "";
+            var encryptedString = new StringBuilder(stringToEncrypt.Length);
+         
             for (int i = 0; i < stringToEncrypt.Length; i++)
             {
-                encryptedString += EncryptLetter(stringToEncrypt[i], encryptingPhrase[i]);
+                encryptedString.Append(EncryptLetter(stringToEncrypt[i], encryptingPhrase[i]));
             }
-            return encryptedString;
+            return encryptedString.ToString();
         }
 
         private char EncryptLetter(char letterToConvert, char substitutionChartKeyChar)
@@ -92,6 +95,24 @@
             var substitutionRow = alphabetSubstitutionChart[char.ToUpper(substitutionChartKeyChar)];
             var placeInAlphabet = characterPlaceInAlphabet[char.ToUpper(letterToConvert)];
             return substitutionRow[placeInAlphabet];
+        }
+
+        public string DecryptString(string stringToDecrypt, string encryptingPhrase)
+        {
+            var decryptedString = new StringBuilder(stringToDecrypt.Length);
+
+            for (int i = 0; i < stringToDecrypt.Length; i++)
+            {
+                decryptedString.Append(DecryptLetter(stringToDecrypt[i], encryptingPhrase[i]));
+            }
+            return decryptedString.ToString();
+        }
+
+        private char DecryptLetter(char letterToDecrypt, char substitutionChartKeyChar)
+        {
+            var indexInSubstitutionRow = alphabetSubstitutionChart[char.ToUpper(substitutionChartKeyChar)].IndexOf(char.ToLower(letterToDecrypt));
+            var originalLetter = alphabetSubstitutionChart['A'].ToCharArray()[indexInSubstitutionRow];
+            return originalLetter;
         }
     }
 
