@@ -5,7 +5,6 @@ string userSecretPhrase;
 string finalSecretPhrase;
 string operation;
 string response;
-bool executeAnotherIteration = true;
 var substitutor = new AlphabetCipher();
 
 do
@@ -40,16 +39,16 @@ do
         Console.WriteLine($"Your encrypted string is: '{substitutor.EncryptString(stringToCipher, finalSecretPhrase)}'.");
     } else
     {
-        Console.WriteLine($"Your decrypted string is: '{substitutor.EncryptString(stringToCipher, finalSecretPhrase)}'.");
+        Console.WriteLine($"Your decrypted string is: '{substitutor.DecryptString(stringToCipher, finalSecretPhrase)}'.");
     }
 
     do
     {
         Console.WriteLine("Would you like to encrypt or decrypt another phrase? (Y/N)");
         response = Console.ReadLine();
-    } while (!response.ToUpper().Equals("Y") || !response.ToUpper().Equals("N"));
+    } while (!response.ToUpper().Equals("Y") && !response.ToUpper().Equals("N"));
 
-    executeAnotherIteration = Boolean.Parse(response);
+    if(response.ToUpper().Equals("N")){ break; }
 
-} while (executeAnotherIteration);
+} while(true);
 
