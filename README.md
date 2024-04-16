@@ -1,7 +1,7 @@
 # coding-challenges
 Just a repository to host any coding challenges I do.
 
-| Directory | Description | Language | Challenge Link|
+| Language | Description | Directory| Challenge Link|
 |--|--|--|--|
-| Alphabet Cipher | Alphabet substitution using a keyword.| C# | https://github.com/gigasquid/wonderland-clojure-katas/tree/master/alphabet-cipher |
+| C# | Alphabet substitution using a keyword.| alphabet-cipher && alphabet-cipher-tests | https://github.com/gigasquid/wonderland-clojure-katas/tree/master/alphabet-cipher |
 | | |
