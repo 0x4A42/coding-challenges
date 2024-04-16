@@ -1,4 +1,4 @@
-﻿using alphabet_cipher.src;
+﻿using AlphabetCipherChallenge;
 
 string stringToCipher;
 string userSecretPhrase;

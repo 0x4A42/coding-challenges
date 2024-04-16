@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace alphabet_cipher.src
+namespace AlphabetCipherChallenge
 {
     public static class InputValidation
     {

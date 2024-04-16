@@ -1,6 +1,6 @@
-using alphabet_cipher.src;
+using AlphabetCipherChallenge;
 
-namespace alphabet_cipher_tests
+namespace AlpabetCipherTests
 {
     public class AlphabetCiperTests
     {

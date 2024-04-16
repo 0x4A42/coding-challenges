@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace alphabet_cipher.src
+namespace AlphabetCipherChallenge
 {
     public class AlphabetCipher
     {
@@ -78,11 +78,10 @@ namespace alphabet_cipher.src
         };
         }
 
-
         public string EncryptString(string stringToEncrypt, string encryptingPhrase)
         {
             var encryptedString = new StringBuilder(stringToEncrypt.Length);
-         
+
             for (int i = 0; i < stringToEncrypt.Length; i++)
             {
                 encryptedString.Append(EncryptLetter(stringToEncrypt[i], encryptingPhrase[i]));
