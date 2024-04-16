@@ -1,20 +1,20 @@
-﻿
-using System.Text;
-using static System.Net.Mime.MediaTypeNames;
+﻿using System.Text;
 
-namespace alphabet_cipher
+namespace alphabet_cipher.src
 {
-    internal static class InputValidation
+    public static class InputValidation
     {
         readonly static string[] exitConditions = ["EXIT", "STOP", "QUIT", "END"];
-        public static bool IsValid(string input) {
+        public static bool IsValid(string input)
+        {
 
-            if (String.IsNullOrWhiteSpace(input)) { Console.Error.WriteLine("Could not encrypt your phrase - cannot be empty."); return false; }
+            if (string.IsNullOrWhiteSpace(input)) { Console.Error.WriteLine("Could not encrypt your phrase - cannot be empty."); return false; }
             if (input.Any(char.IsDigit)) { Console.Error.WriteLine($"Could not encrypt {input} - your phrase cannot contain numbers."); return false; }
             return true;
         }
 
-        public static bool UserWantsToExit(string input) {
+        public static bool UserWantsToExit(string input)
+        {
 
             if (exitConditions.Contains(input.ToUpper())) { return true; }
             return false;

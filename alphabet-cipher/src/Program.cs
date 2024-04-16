@@ -1,4 +1,5 @@
 ﻿using alphabet_cipher;
+using alphabet_cipher.src;
 
 string stringToEncrypt;
 string userEnteredEncryptingPhrase;
@@ -13,7 +14,6 @@ do
     stringToEncrypt = Console.ReadLine();
 
     if (InputValidation.UserWantsToExit(stringToEncrypt)) { break; }
-
 
     Console.WriteLine("Please enter the phrase you wish to use to encrypt the message with.");
     userEnteredEncryptingPhrase = Console.ReadLine();

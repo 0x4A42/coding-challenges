@@ -1,10 +1,10 @@
-﻿namespace alphabet_cipher
+﻿namespace alphabet_cipher.src
 {
-     internal class LetterSubstitutor
+    public class LetterSubstitutor
     {
 
-        private readonly Dictionary<char, string> alphabetSubstitutionChart; 
-        private readonly Dictionary<char, int> characterPlaceInAlphabet; 
+        private readonly Dictionary<char, string> alphabetSubstitutionChart;
+        private readonly Dictionary<char, int> characterPlaceInAlphabet;
 
         public LetterSubstitutor()
         {
@@ -89,8 +89,8 @@
 
         private char EncryptLetter(char letterToConvert, char substitutionChartKeyChar)
         {
-            var substitutionRow = alphabetSubstitutionChart[Char.ToUpper(substitutionChartKeyChar)];
-            var placeInAlphabet = characterPlaceInAlphabet[Char.ToUpper(letterToConvert)];
+            var substitutionRow = alphabetSubstitutionChart[char.ToUpper(substitutionChartKeyChar)];
+            var placeInAlphabet = characterPlaceInAlphabet[char.ToUpper(letterToConvert)];
             return substitutionRow[placeInAlphabet];
         }
     }
