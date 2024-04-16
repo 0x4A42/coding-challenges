@@ -10,11 +10,11 @@ namespace AlphabetCipherChallenge
 
         public AlphabetCipher()
         {
-            alphabetSubstitutionChart = InitialiseSubstitutionChart(new Dictionary<char, string>());
-            characterPlaceInAlphabet = InitialiseAlphabetLookUpDictionary(new Dictionary<char, int>());
+            alphabetSubstitutionChart = InitialiseSubstitutionChart();
+            characterPlaceInAlphabet = InitialiseAlphabetLookUpDictionary();
         }
 
-        private Dictionary<char, string> InitialiseSubstitutionChart(Dictionary<char, string> substitutionChart)
+        private Dictionary<char, string> InitialiseSubstitutionChart()
         {
             return new Dictionary<char, string>() {
             {'A', "abcdefghijklmnopqrstuvwxyz"},
@@ -46,7 +46,7 @@ namespace AlphabetCipherChallenge
         };
         }
 
-        private Dictionary<char, int> InitialiseAlphabetLookUpDictionary(Dictionary<char, int> characterPlaceInAlphabet)
+        private Dictionary<char, int> InitialiseAlphabetLookUpDictionary()
         {
             return new Dictionary<char, int>() {
             {'A', 0},
@@ -92,8 +92,7 @@ namespace AlphabetCipherChallenge
         private char EncryptLetter(char letterToConvert, char substitutionChartKeyChar)
         {
             var substitutionRow = alphabetSubstitutionChart[char.ToUpper(substitutionChartKeyChar)];
-            var placeInAlphabet = characterPlaceInAlphabet[char.ToUpper(letterToConvert)];
-            return substitutionRow[placeInAlphabet];
+            return substitutionRow[characterPlaceInAlphabet[char.ToUpper(letterToConvert)]];
         }
 
         public string DecryptString(string stringToDecrypt, string encryptingPhrase)
@@ -110,8 +109,7 @@ namespace AlphabetCipherChallenge
         private char DecryptLetter(char letterToDecrypt, char substitutionChartKeyChar)
         {
             var indexInSubstitutionRow = alphabetSubstitutionChart[char.ToUpper(substitutionChartKeyChar)].IndexOf(char.ToLower(letterToDecrypt));
-            var originalLetter = alphabetSubstitutionChart['A'].ToCharArray()[indexInSubstitutionRow];
-            return originalLetter;
+            return alphabetSubstitutionChart['A'].ToCharArray()[indexInSubstitutionRow];
         }
     }
 

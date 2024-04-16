@@ -20,10 +20,12 @@ do
 
     if (InputValidation.UserWantsToExit(stringToCipher)) { break; }
 
+    if (!InputValidation.IsValid(stringToCipher)) { continue; }
+
     Console.WriteLine($"Please enter the phrase that will be used to {operation.ToLower()}.");
     userSecretPhrase = Console.ReadLine();
 
-    if (!InputValidation.IsValid(stringToCipher) || !InputValidation.IsValid(userSecretPhrase)) { continue; }
+    if (!InputValidation.IsValid(userSecretPhrase)) { continue; }
 
     if (stringToCipher.Length != userSecretPhrase.Length)
     {
